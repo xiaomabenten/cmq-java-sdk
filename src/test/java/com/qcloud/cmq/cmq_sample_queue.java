@@ -7,11 +7,29 @@ import java.util.List;
 public class cmq_sample_queue {
 
 	public static void main(String[] args) {
+		/*
+		消息队列 CMQ
+        API内网访问信息如下：
+            http://cmq-queue-sh.api.tencentyun.com/v2/index.php?Action=CreateQueue&Region=sh&Timestamp=1465750149（）
+			&Nonce=46364
 
+            &SecretId=AKIDpYM3avi2oOmyzowsCL5hDXfeR2RekUCi
+
+            &Signature=Jnft+GejV+6TdJtkaer6wcqvgK8=
+
+            &queueName=uokoSH-micro-service-MQ
+
+            &pollingWaitSeconds=30
+
+            API签名串信息如下：
+                   {$region} 需用具体地域替换：sh（上海）
+                   SecretId=AKIDpYM3avi2oOmyzowsCL5hDXfeR2RekUCi
+                   Signature=Jnft+GejV+6TdJtkaer6wcqvgK8=
+		 */
 	//从腾讯云官网查询的云API密钥信息
-        String secretId="";
-        String secretKey="";
-        String endpoint = "";
+        String secretId="AKIDpYM3avi2oOmyzowsCL5hDXfeR2RekUCi";
+        String secretKey="Jnft+GejV+6TdJtkaer6wcqvgK8=";
+        String endpoint = "http://cmq-queue-sh.api.qcloud.com";
 
     try
     {
@@ -25,7 +43,7 @@ public class cmq_sample_queue {
 		meta.visibilityTimeout = 10;
 		meta.maxMsgSize = 1048576;
 		meta.msgRetentionSeconds = 345600;
-		account.createQueue("queue-test10",meta);
+		account.createQueue("uokoSH-micro-service-MQ",meta);
 		System.out.println("queue-test10 created");
 		account.createQueue("queue-test11",meta);
 		System.out.println("queue-test11 created");

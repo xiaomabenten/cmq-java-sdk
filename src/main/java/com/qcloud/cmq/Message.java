@@ -9,7 +9,7 @@ import java.util.Vector;
  *         Created 2016年9月26日.
  */
 public class Message {
-	
+
 	/** 服务器返回的消息ID */
 	public String msgId;
 	/** 每次消费唯一的消息句柄，用于删除等操作 */

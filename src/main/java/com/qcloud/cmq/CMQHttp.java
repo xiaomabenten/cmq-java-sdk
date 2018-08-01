@@ -49,8 +49,9 @@ public class CMQHttp {
                 connection = realUrl.openConnection();
             }
            	this.connection.setRequestProperty("Accept", "*/*");
-			if(this.isKeepAlive)
+			if(this.isKeepAlive) {
 				this.connection.setRequestProperty("Connection", "Keep-Alive");
+			}
 			this.connection.setRequestProperty("User-Agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
 
@@ -94,8 +95,9 @@ public class CMQHttp {
 			throw e;
 		}finally{
 			try {
-				if (in != null) 
+				if (in != null) {
 					in.close();
+				}
 			} catch (Exception e2) {
 				throw e2;
 			}
